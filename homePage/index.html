@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Editorial Team</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --topbar: #e8edf3;
+            --border: #f2c14e;
+            --border-light: #f6da8e;
+            --orange: #e2790c;
+            --orange-dark: #c96806;
+            --text: #333333;
+            --muted: #5a5a5a;
+            --shadow: 0 2px 10px rgba(0, 0, 0, .06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-padding-top: env(safe-area-inset-top, 0px);
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+            color: var(--text);
+            background: #fdfdfd;
+            font-size: 15px;
+            line-height: 1.6;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        .topbar {
+            height: 64px;
+            background: linear-gradient(180deg, #eef1f6, #e6eaf1);
+            border-bottom: 1px solid #dde2ea;
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 28px 20px 70px;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 32px;
+        }
+
+        @media (max-width:800px) {
+            .wrap {
+                grid-template-columns: 1fr;
+                padding: 20px 16px 50px;
+                gap: 24px;
+            }
+        }
+
+        /* Breadcrumb card */
+        .crumb-box {
+            background: #fdf6e3;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 16px 22px;
+            margin-bottom: 28px;
+            display: inline-block;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .crumb-box a {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .crumb-box a:hover {
+            color: var(--orange-dark);
+        }
+
+        .crumb-box span.sep {
+            margin: 0 10px;
+            color: #b9b9b9;
+        }
+
+        .crumb-box span.current {
+            color: #777;
+        }
+
+        h1.page-title {
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0 0 24px;
+            color: #222;
+        }
+
+        .section-label {
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: .3px;
+            margin: 26px 0 6px;
+            color: #222;
+        }
+
+        .team-heading {
+            font-size: 19px;
+            margin: 32px 0 4px;
+            color: #222;
+        }
+
+        .name-line {
+            font-weight: 700;
+            margin: 0 0 4px;
+            color: #111;
+        }
+
+        .affil-line {
+            margin: 0 0 10px;
+            color: var(--muted);
+        }
+
+        hr.rule {
+            border: none;
+            border-top: 1px solid #ececec;
+            margin: 26px 0;
+        }
+
+        ol.editors {
+            padding-left: 22px;
+            margin-top: 14px;
+        }
+
+        ol.editors li {
+            margin-bottom: 16px;
+            line-height: 1.65;
+            padding-left: 4px;
+        }
+
+        ol.editors li::marker {
+            font-weight: 700;
+            color: var(--orange);
+        }
+
+        ol.editors li b {
+            font-weight: 700;
+            color: #111;
+        }
+
+        ol.editors a {
+            color: var(--orange);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        ol.editors a:hover {
+            border-bottom-color: var(--orange);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .side-card {
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+            background: #fff;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .side-card h3 {
+            color: var(--orange);
+            margin: 0 0 14px;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .editor-photo {
+            width: 132px;
+            height: 152px;
+            object-fit: cover;
+            border-radius: 5px;
+            display: block;
+            margin: 0 auto 16px;
+            background: #eee;
+            border: 1px solid #eee;
+        }
+
+        .side-name {
+            font-weight: 700;
+            margin: 0 0 10px;
+            font-size: 14px;
+            letter-spacing: .2px;
+            text-align: center;
+        }
+
+        .side-affil {
+            margin: 0;
+            line-height: 1.6;
+            color: var(--muted);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .side-affil a {
+            color: var(--orange);
+        }
+
+        .wkp-name {
+            color: var(--orange);
+            font-weight: 700;
+            margin: 0 0 8px;
+            font-size: 15px;
+        }
+
+        .wkp-role {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .index-logo-link {
+            display: block;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .index-logo-link:last-child {
+            margin-bottom: 0;
+        }
+
+        .index-logo {
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+            transition: opacity .15s ease;
+        }
+
+        .index-logo-link:hover .index-logo {
+            opacity: .85;
+        }
+
+        .researchgate-text {
+            color: #00d0af;
+            font-weight: 600;
+            font-size: 19px;
+            letter-spacing: .2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar"></div>
+
+    <div class="wrap">
+
+        <!-- MAIN CONTENT -->
+        <main style="border: 1px solid var(--border-light); border-radius: 6px; padding: 10px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 
+              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;   ">
+            <div class="crumb-box">
+                <a href="#">Home</a><span class="sep">/</span><span class="current">Editorial Team</span>
+            </div>
+
+            <h1 class="page-title">Editorial Team</h1>
+
+            <p class="section-label">BOSH MUHARRIR</p>
+            <p class="name-line">Rasulov Baxtiyor Mahmudjonovich</p>
+            <p class="affil-line">Andijon davlat pedagogika instituti professori.</p>
+
+            <p class="section-label">BOSH MUHARRIR O'RINBOSARI</p>
+            <p class="name-line">Sirojidinov Behzodbek Arabdjonovich</p>
+            <p class="affil-line">Andijon davlat pedagogika instituti professori.</p>
+            <hr class="rule">
+            <p class="team-heading section-label">Editorial team</p>
+
+            <ol class="editors">
+                <li><b>Musayev Akmalbek İbragimdjanovich -</b> Andijon davlat chet tillari instituti, filologiya fanlari
+                    bo‘yicha falsafa doktori (PhD)</li>
+                <li><b>Shukurova Madina Askarovna -</b> Filologiya fanlari bo'yicha Falsafa Doktori</li>
+                <li><b>Mamedov Buxar -</b> Ichki Ishlar Vazirligi Akademiyasi, Filologiya fanlari Doktori</li>
+                <li><b>Yuldashev Jurabek Uralovich -</b> Navoiy Davlat Pedagogika Instituti, Filologiya fanlari bo'yicha
+                    falsafa doktori</li>
+                <li><b>Ernazarova Gulnoza Murodovna -</b> Navoiy Davlat Pedagogika Instituti, Filologiya fanlari
+                    bo'yicha falsafa doktori</li>
+                <li><b>Keldiyarova Gulchexra Saydiyevna -</b> Mirzo Ulug'bek nomidagi O'zbekiston Milliy universiteti
+                </li>
+                <li><b>Abdurazzakova Shoxida Raximovna -</b> Guliston Davlat Universiteti</li>
+                <li><b>Suvankulov Baxtiyor Mamarasulovich -</b> Filologiya fanlari PhD</li>
+                <li><b>Maxmudxodjayeva Umida Muminovna -</b> Toshkent davlat yuridik universiteti Fuqarolik huquqi
+                    sho‘basi, dotsenti, yuridik fanlar doktori</li>
+                <li><b>Nazaraliyeva Marxabo Xayitboyevna -</b> Renessans universiteti Pedagogika va psixologiya
+                    departamenti, dotsenti, psixologiya fanlari bo‘yicha falsafa doktori (PhD)</li>
+                <li><b>Raximova Dilorom Xaitbayevna -</b> Toshkent davlat yuridik universiteti Fuqarolik huquqi
+                    sho‘basi, katta o‘qituvchisi, yuridik fanlar bo‘yicha falsafa doktori (PhD)</li>
+                <li><b>Turdiyeva Mohira Juraqulovna -</b> “ADPI ilmiy xabarnomasi” jurnali, pedagogika fanlar sohasiga
+                    tahririyat a’zosi</li>
+                <li><b>Yuldasheva Nilufarxon Sherqo‘zi qizi -</b> Renessans ta’lim universiteti Pedagogika va
+                    psixologiya departamenti, v.b. dotsenti, psixologiya fanlari bo‘yicha falsafa doktori (PhD)</li>
+            </ol>
+        </main>
+
+        <!-- SIDEBAR -->
+        <aside>
+            <div class="side-card">
+                <h3>EDITOR IN CHIEF</h3>
+                <!-- Bu yerga muharrir rasmini qo'ying: img/editor-photo.jpg -->
+                <img class="editor-photo" src="../images/image.png" alt="Aliyev Husniddin Makhmudovich">
+                <p class="side-name">Rasulov Baxtiyor Mahmudjonovich</p>
+                <p class="side-affil">Abndijon davlat pedagogika instituti <br> rektori tarix fanlari doktori, <br>
+                    professor.</p>
+            </div>
+
+
+
+            <div class="side-card">
+                <h3>INDEXING</h3>
+                <a class="index-logo-link" href="https://scholar.google.com/"><img class="index-logo"
+                        src="../images/google-scholar-google-search-academic-journal-web-search-engine-png-favpng-QpKvAYMTYhaEUmqzUEypYw1vj.jpg"
+                        alt="Google Scholar"></a>
+                <a class="index-logo-link" href="https://www.doi.org/"><img class="index-logo" src="../images/dio.png"
+                        alt="DOI - Digital Object Identifier"></a>
+                <a class="index-logo-link" href="https://zenodo.org/"><img class="index-logo" src="../images/zzzzz.webp" alt="Zenodo"></a>
+            </div>
+        </aside>
+
+    </div>
+</body>
+
+</html>
